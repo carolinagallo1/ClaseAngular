@@ -1,1 +1,113 @@
-<p>cliente hola!</p>
+<div class="container" id="advanced-search-form">
+<ng-container *ngIf="!crearCliente; else formClientes">
+<button type="button" class="btn btn-dark btn-sm" (click)="crearCliente = true">Crear cliente</button>
+<table datatable class="row-border hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First name</th>
+        <th>Last name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Foo</td>
+        <td>Bar</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Someone</td>
+        <td>Youknow</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Iamout</td>
+        <td>Ofinspiration</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Yoda</td>
+        <td>Skywalker</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Patrick</td>
+        <td>Dupont</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Barack</td>
+        <td>Obama</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>François</td>
+        <td>Holland</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Michel</td>
+        <td>Popo</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Chuck</td>
+        <td>Norris</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Simon</td>
+        <td>Robin</td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>Louis</td>
+        <td>Lin</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Zelda</td>
+        <td>Link</td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
+<ng-template #formClientes>
+    <button type="button" class="btn btn-dark btn-sm" (click)="crearCliente = false">Ver clientes</button>
+    <form [formGroup]= "formulario"> 
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-2 col-form-label">Nombres</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" formControlName="Nombre" id="staticEmail" placeholder="Nombres">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-2 col-form-label">Apellidos</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" formControlName="Apellido" placeholder="Apellidos">
+          </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Documento</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control"  formControlName="Documento" placeholder="Documento">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Dirección</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control"  formControlName="Direccion" placeholder="Dirección">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <button type="button" (click)="AddCliente()" class="btn btn-secondary" >Guardar</button>
+                <button type="button" class="btn btn-outline-dark" style="margin-left: 2%;">Cancelar</button>
+            </div>
+          </div>
+      </form>
+  </ng-template>
+  
+</div>

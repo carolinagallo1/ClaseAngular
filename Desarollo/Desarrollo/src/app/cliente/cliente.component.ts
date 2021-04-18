@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder,Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-cliente',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClienteComponent implements OnInit {
 
-  constructor() { }
+  crearCliente:boolean = false;
+  constructor(private formBuilder:FormBuilder) { }
+  formulario=this.formBuilder.group({
+    Nombre : ['',Validators.required],
+    Apellido : ['',Validators.required],
+    Direccion : ['',Validators.required],
+    Documento : ['',Validators.required]
 
+  })
   ngOnInit(): void {
   }
-
+AddCliente(){
+  console.log(this.formulario.value)
+}
 }
